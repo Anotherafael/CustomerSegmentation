@@ -12,7 +12,7 @@ After completing the EDA, I used K-Means to identify the most pertinent characte
 
 The K-Means model was built with five clusters using the preprocessed data, and I examined the traits and behaviours of each cluster. Lastly, I wrapped up the profiles of the clusters, offering the retail outlet practical advice on how to better customise their marketing plans and customer support initiatives.
 
-Finally, a loyalty program was developed for the most valuable clients. This program aims to boost revenue by implementing strategies such as discounts, exclusive products, and targeted marketing campaigns. After defining the program, I projected potential financial outcomes to demonstrate its impact. The analysis showed a revenue increase of $114,920.55, representing a 9% growth.
+Finally, a loyalty program was developed for the most valuable clients. This program aims to boost revenue by implementing strategies such as discounts, exclusive products, and targeted marketing campaigns. After defining the program, I projected potential financial outcomes to demonstrate its impact. The analysis showed a revenue increase of $117,382.65, representing a 9% growth.
 
 I thoroughly loved working on this project and was able to show off my proficiency in doing in-depth data analysis and using machine learning approaches to address business challenges. I gained new skills and a deeper grasp of client segmentation and profiling from this amazing learning experience.
 
@@ -21,7 +21,7 @@ I thoroughly loved working on this project and was able to show off my proficien
 - Python (Pandas, Numpy, Matplotlib, Seaborn, Scikit-Learn)
 - Jupyter Notebook
 - Preprocessing (Feature Encoding, Feature Scaling, PCA)
-- Machine Learning Clustering (K-Means)
+- Machine Learning Clustering (K-Means, Elbow Method)
 - Git
 
 ## 1. EDA
