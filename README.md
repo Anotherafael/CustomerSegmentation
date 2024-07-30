@@ -1,34 +1,36 @@
-## Customer Segmentation and Profiling for Retail Store
+# Customer Segmentation and Profiling for Retail Store
 
-### Abstract
+## Abstract
 
-The goal of this project is to better analyse and segment a retail store's client base in order to improve customer service and marketing tactics. To accomplish these objectives, I worked on a variety of modelling and data analysis activities for this project.
+The goal of this project is to better analyse and segment a retail store's client base in order to improve customer service and marketing tactics. To accomplish these objectives, I worked on a variety of data analysis and modelling activities for this project.
 
 Understanding and defining the business challenge was the first step. I had to determine the significance of client segmentation for the retail establishment and the ways in which it may improve the targeting of marketing initiatives. I was able to comprehend the data, its structure, and the significance of each characteristic by thoroughly examining the dataset.
 
-To ensure data quality, I cleaned the dataset by removing null and duplicated rows. After that, I dropped unnecessary features that did not contribute to the analysis. Data preprocessing was then conducted to prepare the data for Exploratory Data Analysis (EDA). During the EDA, I explored various aspects of the data, performed feature engineering, and analyzed outliers to identify patterns and insights. 
+To ensure data quality, I cleaned the dataset by removing null and duplicated rows. After that, I dropped unnecessary features that did not contribute to the analysis. Data preprocessing was then conducted to prepare the data for Exploratory Data Analysis (EDA). During the EDA, I explored various aspects of the data, performed feature engineering, and analyzed outliers to identify patterns and insights.
 
 After completing the EDA, I used K-Means to identify the most pertinent characteristics for the clustering model. I implemented feature encoding and scaling to enhance the model's performance. To further improve the clustering procedure and minimise dimensionality, Principal Component Analysis (PCA) was employed.
 
 The K-Means model was built with five clusters using the preprocessed data, and I examined the traits and behaviours of each cluster. Lastly, I wrapped up the profiles of the clusters, offering the retail outlet practical advice on how to better customise their marketing plans and customer support initiatives.
 
+Finally, a loyalty program was developed for the most valuable clients. This program aims to boost revenue by implementing strategies such as discounts, exclusive products, and targeted marketing campaigns. After defining the program, I projected potential financial outcomes to demonstrate its impact. The analysis showed a revenue increase of $114,920.55, representing a 9% growth.
+
 I thoroughly loved working on this project and was able to show off my proficiency in doing in-depth data analysis and using machine learning approaches to address business challenges. I gained new skills and a deeper grasp of client segmentation and profiling from this amazing learning experience.
 
-### Technologies
+## Technologies
 
 - Python (Pandas, Numpy, Matplotlib, Seaborn, Scikit-Learn)
 - Jupyter Notebook
 - Preprocessing (Feature Encoding, Feature Scaling, PCA)
 - Machine Learning Clustering (K-Means)
-- Git and GitHub
+- Git
 
-### 1. EDA 
+## 1. EDA
 
-#### 1.1 Dataset
+### 1.1 Dataset
 
 We have a total of 28 features, excluding the ID. Among them, there are 2 categorical features and 26 numerical features.
 
-**People:** 
+**People:**
 
 - ID: Customer's unique identifier
 - Year_Birth: Customer's birth year
@@ -41,7 +43,8 @@ We have a total of 28 features, excluding the ID. Among them, there are 2 catego
 - Recency: Number of days since customer's last purchase
 - Complain: 1 if the customer complained in the last 2 years, 0 otherwise
 
-**Products:** 
+**Products:**
+
 - MntWines: Amount spent on wine in last 2 years
 - MntFruits: Amount spent on fruits in last 2 years
 - MntMeatProducts: Amount spent on meat in last 2 years
@@ -51,7 +54,7 @@ We have a total of 28 features, excluding the ID. Among them, there are 2 catego
 
 These product features represent the amounts spent on each type of product.
 
-**Marketing Promotion:** 
+**Marketing Promotion:**
 
 - NumDealsPurchases: Number of purchases made with a discount
 - AcceptedCmp1: 1 if customer accepted the offer in the 1st campaign, 0 otherwise
@@ -61,14 +64,14 @@ These product features represent the amounts spent on each type of product.
 - AcceptedCmp5: 1 if customer accepted the offer in the 5th campaign, 0 otherwise
 - Response: 1 if customer accepted the offer in the last campaign, 0 otherwise
 
-**Place:** 
+**Place:**
 
 - NumWebPurchases: Number of purchases made through the company’s website
 - NumCatalogPurchases: Number of purchases made using a catalogue
 - NumStorePurchases: Number of purchases made directly in stores
 - NumWebVisitsMonth: Number of visits to company’s website in the last month
 
-#### 1.2 Conclusion
+### 1.2 Conclusion
 
 1. The product spending features are skewed to the right, meaning that while most customers spend less, some do so considerably more. Among all product categories, wine has the greatest average spending.
 
@@ -92,69 +95,127 @@ These product features represent the amounts spent on each type of product.
 
 11. Higher-income consumers were successfully targeted by Campaigns 1 and 5, especially when it came to wine and meat purchases. Customers who made larger purchases showed a significantly greater proportion of marketing acceptance.
 
-### 2. Clustering
+## 2. Clustering
 
 The steps involved in the Clustering are:
 
 - Elbow Method to determine the optimum number of clusters
-- Employ the KMeans 
+- Employ the KMeans
 - Examining the clusters
 
-#### 2.1 Elbow
+### 2.1 Elbow
 
-The Elbow method indicates that 4 is to optimal number of clusters.
+The Elbow method indicates that 5 is to optimal number of clusters.
 
 ![Elbow](./assets/clustering/elbow.png)
 
-#### 2.2 Visualization
+### 2.2 Visualization
+
+#### 2.2.1 3D Visualization of the clusters in the PCA results
 
 ![3D Clusters - PCA Features](./assets/clustering/3d_clusters_pca-features.png)
 
+#### 2.2.2 2D Visualization of the clusters comparing the customers's income and total spent
+
 ![2D Clusters - Income vs. Total Spent](./assets/clustering/2d_clusters_income-totalspent.png)
+
+#### 2.2.3 Visualization of the count for each Cluster
 
 ![Count of each cluster](./assets/clustering/countplot_clusters.png)
 
+![Count of each cluster in Piechart](./assets/clustering/pie_count_clusters.png)
+
+#### 2.2.4 Visualization of the differences in purchase types across clusters
+
 ![Clusters of purchases](./assets/clustering/purchases_clusters.png)
 
-![](./assets/clustering/products_clusters.png)
+#### 2.2.5 Visualization of the differences in product types across clusters
 
-![](./assets/clustering/campaings_clusters.png)
+![Clusters of products](./assets/clustering/products_clusters.png)
 
-#### 2.3 Conclusion
+#### 2.2.6 Visualization of the differences in campaigns across clusters
 
-##### Cluster 0:
+![Clusters of campaings](./assets/clustering/campaings_clusters.png)
 
-- Features the highest income and spending.
-- Typically consists of families with no children and between 1 to 2 members.
-- Mostly on graduated education levels.
-- Purchases a lot on catalog, store, and a little on web channels.
-- Shows significant expenditure on all types of products.
-- Predominantly responds to campaign 1 and 5.
+#### 2.2.7 Visualization of the revenue by each cluster
 
-##### Cluster 1:
+![Clusters of campaings](./assets/clustering/revenue_percentage_clusters.png)
 
-- Characterized by low income and spending.
-- Typically consists of families with at least one child.
+### 2.3 Conclusion
+
+#### Cluster 0 - "Affluent Families"
+
+- Features the second highest income and spending.
+- Typically consists of a couple with one child.
 - Mostly on graduated to postgraduate education levels.
-- Purchases primarily through deals and web purchases..
-- Purchases fewer products but shows a slight preference for gold items
-- Shows a low rate of campaign acceptance, with campaign 3 and 4 being the most accepted.
+- Makes numerous purchases, showing no strong preference for any particular purchase method.
+- Shows a significant expenditure on all types of products.
+- Predominantly responds to campaign 3, 4 and 5.
+- Commonly older people
+- Commonly uses the web application.
 
-##### Cluster 2:
+#### Cluster 1 - "Discount Seekers"
 
-- Exhibits high to average income and spending.
-- Contains the largest families, with 3 to 4 members.
+- Characterized by the second lowest income and the lowest spending.
+- Typically consists of the largest families.
 - Mostly on graduated to postgraduate education levels.
-- Includes the oldest demographic.
-- Favors purchases from catalogs.
-- Makes numerous purchases, showing no strong preference for any particular purchase method. However, store and web purchases are the most common.
-- Shows a average acceptance rate for campaigns 3 and 4.
+- Purchases primarily through deals purchases.
+- Purchases fewer products but shows a slight preference for food products.
+- Shows a low rate of campaign acceptance, with campaign 3 the most accepted.
+- Commonly middle-aged people
+- Frequently uses the web application.
 
-##### Cluster 3:
+#### Cluster 2 - "Prosperous Shoppers"
 
-- Noted for the lowest income and spending.
-- Comprises families of 2 or 3 members.
-- Includes the youngest demographic.
-- Mostly on basic education levels.
+- Exhibits the highest income and spending.
+- Contains the smallest families, meaning that has no children.
+- Mostly on graduated to postgraduate education levels.
+- Makes a lot of purchases, showing preference over store and catalog purchases.
+- Shows significant expenditure without a major preference.
+- Shows a high acceptance rate for campaigns 1 and 5.
+- Commonly old and middle-aged people, but has some young people.
+- Commonly don't use the web application.
+
+#### Cluster 3 - "Web Enthusiasts"
+
+- Noted for the average income and spending.
+- Comprises couples with one or more children.
+- Mostly on graduated to postgraduate education levels.
+- Frequently purchases through deals and web.
+- Shows a decent expenditure with a preference over wines and gold products.
+- Shows a high acceptance rate for campaign 4.
+- Commonly older people.
+- Frequently uses the web application.
+
+#### Cluster 4 - "Low Budget"
+
+- Noted for the lowest income and the second lowest spending.
+- Comprises families of single parent.
+- Mostly on graduated levels, but some with only basic level.
 - Frequently purchases through deals.
-- Shows a high acceptance rate for campaign 3.
+- Purchases fewer products but shows a slight preference for food and gold products
+- Shows a low rate of campaign acceptance, with campaign 3 the most accepted.
+- Commonly old and middle-aged people, but has the majority of the young people.
+- Frequently uses the web application.
+
+## 3. Loyalty Program
+
+After analyzing the clusters, we can infere that the most valuable clients for a loyalty program are the Prosperous Shoppers, because they have:
+
+- a high income;
+- buy a lot of products;
+- responds well to campaings.
+- represent 49% of the total revenue.
+
+### 3.1 Presumptions of Loyalty Program
+
+- I assumed that the retail establishment can enhance the income of its Prosperous clientele by 15% by focused marketing efforts, customised merchandise, and exclusive deals.
+- Since Prosperous and Affluent Families clients are comparable, I estimated a 25% conversion rate for Prosperous customers.
+- Than, I assumed the following conversion rates to Prosperous, given that the other categories are more dissimilar from Prosperous customers: Low Budget = 3%; Discount Seekers = 5%; and Web Enthusiasts = 8%.
+
+### 3.2 Results
+
+- Total revenue before Prosperous loyalty program: $1,349,751.00.
+- Total revenue after Prosperous loyalty program: $1,467,133.65
+- Revenue increased by 9.00%
+- Revenue increased in $117,382.65.
