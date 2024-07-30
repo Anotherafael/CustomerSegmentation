@@ -12,7 +12,7 @@ After completing the EDA, I used K-Means to identify the most pertinent characte
 
 The K-Means model was built with five clusters using the preprocessed data, and I examined the traits and behaviours of each cluster. Lastly, I wrapped up the profiles of the clusters, offering the retail outlet practical advice on how to better customise their marketing plans and customer support initiatives.
 
-Finally, a loyalty program was developed for the most valuable clients. This program aims to boost revenue by implementing strategies such as discounts, exclusive products, and targeted marketing campaigns. After defining the program, I projected potential financial outcomes to demonstrate its impact. The analysis showed a revenue increase of $117,382.65, representing a 9% growth.
+Finally, a loyalty program was developed for the most valuable clients. This program aims to boost revenue by implementing strategies such as discounts, exclusive products, and targeted marketing campaigns. After defining the program, I projected potential financial outcomes to demonstrate its impact. The analysis showed a revenue increase of $125,674.50, representing a 9% growth.
 
 I thoroughly loved working on this project and was able to show off my proficiency in doing in-depth data analysis and using machine learning approaches to address business challenges. I gained new skills and a deeper grasp of client segmentation and profiling from this amazing learning experience.
 
@@ -71,7 +71,19 @@ These product features represent the amounts spent on each type of product.
 - NumStorePurchases: Number of purchases made directly in stores
 - NumWebVisitsMonth: Number of visits to company’s website in the last month
 
-### 1.2 Conclusion
+### 1.2 RFM Model
+
+I used the RFM model for clustering analysis.
+
+The RFM model is a marketing and customer segmentation technique used to analyze and categorize customers based on their recent purchasing behavior.
+
+![RFM Metrics](./assets/rfm/rfm_metrics.png)
+
+By analyzing these three factors, businesses can categorize their customers into different segments, such as "high-value and highly engaged" or "low-value and inactive." This segmentation allows companies to tailor their marketing strategies and offers to each group more effectively, ultimately improving customer retention and maximizing revenue.
+
+![RFM Map](./assets/rfm/rfm_map.png)
+
+### 1.3 Conclusion
 
 1. The product spending features are skewed to the right, meaning that while most customers spend less, some do so considerably more. Among all product categories, wine has the greatest average spending.
 
@@ -83,7 +95,7 @@ These product features represent the amounts spent on each type of product.
 
 5. There is a substantial negative correlation between income and having children at home, indicating that consumers with higher incomes typically have fewer or no children, and vice versa.
 
-6. Spending on pricey goods like wine and meat is positively correlated with income. Given that higher-income consumers typically buy these things more frequently, this association seems sense.
+6. Spending on pricey goods like wine and meat is positively correlated with income. Given that higher-income consumers typically buy these things more frequently.
 
 7. Income and catalogue and in-store purchases have a high positive correlation, whereas monthly online visits and income have a negative correlation. This emphasises how crucial it is to improve higher-income customers' catalogue and in-store shopping experiences.
 
@@ -143,79 +155,76 @@ The Elbow method indicates that 5 is to optimal number of clusters.
 
 ### 2.3 Conclusion
 
-#### Cluster 0 - "Affluent Families"
+#### Cluster 0 - "Prosperous Shoppers"
 
-- Features the second highest income and spending.
-- Typically consists of a couple with one child.
-- Mostly on graduated to postgraduate education levels.
-- Makes numerous purchases, showing no strong preference for any particular purchase method.
-- Shows a significant expenditure on all types of products.
-- Predominantly responds to campaign 3, 4 and 5.
-- Commonly older people
-- Commonly uses the web application.
-
-#### Cluster 1 - "Discount Seekers"
-
-- Characterized by the second lowest income and the lowest spending.
-- Typically consists of the largest families.
-- Mostly on graduated to postgraduate education levels.
-- Purchases primarily through deals purchases.
-- Purchases fewer products but shows a slight preference for food products.
-- Shows a low rate of campaign acceptance, with campaign 3 the most accepted.
-- Commonly middle-aged people
-- Frequently uses the web application.
-
-#### Cluster 2 - "Prosperous Shoppers"
-
-- Exhibits the highest income and spending.
+- Features the highest income and spending.
 - Contains the smallest families, meaning that has no children.
-- Mostly on graduated to postgraduate education levels.
-- Makes a lot of purchases, showing preference over store and catalog purchases.
-- Shows significant expenditure without a major preference.
-- Shows a high acceptance rate for campaigns 1 and 5.
-- Commonly old and middle-aged people, but has some young people.
+- Mostly graduated, with some having completed postgraduate studies as well.
+- Frequently makes purchases, with a strong preference for store and catalog shopping.
+- Shows a significant expenditure on all types of products.
+- Predominantly responds to campaign 1 and 5.
+- A mix of old and middle-aged people, but having some young.
 - Commonly don't use the web application.
+- Recency: Highest.
+- Frequency: High.
 
-#### Cluster 3 - "Web Enthusiasts"
+#### Cluster 1 - "Low Budget"
+
+- Characterized by the lowest income and the lowest spending.
+- Typically consists a small family.
+- Mostly graduated, with a few having completed postgraduate studies as well.
+- Rarely makes purchases, showing a high preference for deals.
+- Purchases fewer products but shows a slight preference for food and gold products.
+- Shows a low rate of campaign acceptance, with campaign 3 the most accepted.
+- Commonly middle-aged people, and having the majority of young ones.
+- Frequently uses the web application.
+- Recency: High.
+- Frequency: Lowest.
+
+#### Cluster 2 - "Affluent Families"
+
+- Exhibits the second highest income and spending.
+- Typically consists of couples with one child.
+- Mostly graduated, with many having completed postgraduate studies as well.
+- Makes the highest number of purchases, without a strong preference for any specific shopping method.
+- Shows significant expenditure for wines and gold items.
+- Shows a low rate of campaign acceptance, with campaign 3 and 4 the most accepted.
+- Commonly old people.
+- Commonly don't use the web application.
+- Recency: Low.
+- Frequency: Highest.
+
+#### Cluster 3 - "Web-Discount Seekers"
 
 - Noted for the average income and spending.
-- Comprises couples with one or more children.
+- Comprises largest families.
 - Mostly on graduated to postgraduate education levels.
-- Frequently purchases through deals and web.
+- Often makes purchases, favoring deals and web shopping.
 - Shows a decent expenditure with a preference over wines and gold products.
-- Shows a high acceptance rate for campaign 4.
-- Commonly older people.
+- Shows a low rate of campaign acceptance, with campaign 3 and 4 the most accepted.
+- A mix of old and middle-aged people.
 - Frequently uses the web application.
-
-#### Cluster 4 - "Low Budget"
-
-- Noted for the lowest income and the second lowest spending.
-- Comprises families of single parent.
-- Mostly on graduated levels, but some with only basic level.
-- Frequently purchases through deals.
-- Purchases fewer products but shows a slight preference for food and gold products
-- Shows a low rate of campaign acceptance, with campaign 3 the most accepted.
-- Commonly old and middle-aged people, but has the majority of the young people.
-- Frequently uses the web application.
+- Recency: Lowest.
+- Frequency: High.
 
 ## 3. Loyalty Program
 
 After analyzing the clusters, we can infere that the most valuable clients for a loyalty program are the Prosperous Shoppers, because they have:
 
 - a high income;
-- buy a lot of products;
-- responds well to campaings.
+- buys a lot of products;
 - represent 49% of the total revenue.
+- responds well to campaings.
 
 ### 3.1 Presumptions of Loyalty Program
 
 - I assumed that the retail establishment can enhance the income of its Prosperous clientele by 15% by focused marketing efforts, customised merchandise, and exclusive deals.
-- Since Prosperous and Affluent Families clients are comparable, I estimated a 25% conversion rate for Prosperous customers.
-- Than, I assumed the following conversion rates to Prosperous, given that the other categories are more dissimilar from Prosperous customers: Low Budget = 3%; Discount Seekers = 5%; and Web Enthusiasts = 8%.
+- Since Prosperous and Affluent Families clients are comparable, I estimated a 30% conversion rate for Prosperous customers.
+- Than, I assumed the following conversion rates to Prosperous, given that the other categories are more dissimilar from Prosperous customers: Web-Discount Seekers = 10% and Low Budget = 5%.
 
 ### 3.2 Results
 
 - Total revenue before Prosperous loyalty program: $1,349,751.00.
-- Total revenue after Prosperous loyalty program: $1,467,133.65
+- Total revenue after Prosperous loyalty program: $1,475,425.50
 - Revenue increased by 9.00%
-- Revenue increased in $117,382.65.
+- Revenue increased in $125,674.50.
