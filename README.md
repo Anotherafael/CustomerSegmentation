@@ -209,10 +209,6 @@ The Elbow method indicates that 5 is to optimal number of clusters.
 
 ## 3. Loyalty Program
 
-### 3.1 RFM Map
-
-![RFM Map of the clusters](./assets/clustering/rfm_map.png)
-
 After analyzing the clusters, we can infere that the most valuable clients for a loyalty program are the Prosperous Shoppers, because they have:
 
 - a high income;
