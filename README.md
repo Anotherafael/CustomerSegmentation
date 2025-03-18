@@ -2,33 +2,25 @@
 
 ## Abstract
 
-The goal of this project is to better analyse and segment a retail store's client base in order to improve customer service and marketing tactics. To accomplish these objectives, I worked on a variety of data analysis and modelling activities for this project.
+The project focused on improving customer service and marketing strategies for a retail store by analyzing and segmenting its customer base. To achieve this, I applied various data analysis and modeling techniques, starting with understanding the business challenge and how segmentation could enhance targeted marketing efforts. This involved exploring the dataset, its structure, and the importance of each feature.
 
-Understanding and defining the business challenge was the first step. I had to determine the significance of client segmentation for the retail establishment and the ways in which it may improve the targeting of marketing initiatives. I was able to comprehend the data, its structure, and the significance of each characteristic by thoroughly examining the dataset.
+To ensure data quality, I cleaned the dataset by removing null values and duplicate records. I also eliminated irrelevant features and performed preprocessing steps to prepare the data for Exploratory Data Analysis (EDA). During EDA, I worked on feature engineering, analyzed outliers, and identified patterns to extract useful insights.
 
-To ensure data quality, I cleaned the dataset by removing null and duplicated rows. After that, I dropped unnecessary features that did not contribute to the analysis. Data preprocessing was then conducted to prepare the data for Exploratory Data Analysis (EDA). During the EDA, I explored various aspects of the data, performed feature engineering, and analyzed outliers to identify patterns and insights.
+For customer segmentation, I used the K-Means clustering algorithm, applying feature encoding and scaling to improve model performance. Additionally, Principal Component Analysis (PCA) helped reduce dimensionality and make clustering more efficient. I developed a model with five distinct customer groups and analyzed their characteristics and behaviors in detail. This allowed me to create customer profiles and provide recommendations for personalized marketing and customer service.
 
-After completing the EDA, I used K-Means to identify the most pertinent characteristics for the clustering model. I implemented feature encoding and scaling to enhance the model's performance. To further improve the clustering procedure and minimise dimensionality, Principal Component Analysis (PCA) was employed.
-
-The K-Means model was built with five clusters using the preprocessed data, and I examined the traits and behaviours of each cluster. Lastly, I wrapped up the profiles of the clusters, offering the retail outlet practical advice on how to better customise their marketing plans and customer support initiatives.
-
-Finally, a loyalty program was developed for the most valuable clients. This program aims to boost revenue by implementing strategies such as discounts, exclusive products, and targeted marketing campaigns. After defining the program, I projected potential financial outcomes to demonstrate its impact. The analysis showed a revenue increase of $125,674.50, representing a 9% growth.
-
-I thoroughly loved working on this project and was able to show off my proficiency in doing in-depth data analysis and using machine learning approaches to address business challenges. I gained new skills and a deeper grasp of client segmentation and profiling from this amazing learning experience.
+To make the most of the segmentation insights, I proposed a loyalty program targeting the most valuable customers, including discounts, exclusive products, and personalized promotions. Financial projections suggested a revenue increase of $125.691,45, representing a 9% growth. This project not only strengthened my skills in data analysis and machine learning but also gave me hands-on experience in customer segmentation and data-driven decision-making.
 
 ## Technologies
 
 - Python (Pandas, Numpy, Matplotlib, Seaborn, Scikit-Learn)
-- Jupyter Notebook
 - Preprocessing (Feature Encoding, Feature Scaling, PCA)
-- Machine Learning Clustering (K-Means, Elbow Method)
-- Git
+- ML Clustering (K-Means, Elbow Method)
 
 ## 1. EDA
 
 ### 1.1 Dataset
 
-We have a total of 28 features, excluding the ID. Among them, there are 2 categorical features and 26 numerical features.
+We've a total of 28 features, excluding the ID. Among them, there are 2 categorical features and 26 numerical features.
 
 **People:**
 
@@ -71,17 +63,27 @@ These product features represent the amounts spent on each type of product.
 - NumStorePurchases: Number of purchases made directly in stores
 - NumWebVisitsMonth: Number of visits to company’s website in the last month
 
-### 1.2 RFM Model
+### 1.2 RFM Metric
 
-I used the RFM model for clustering analysis.
-
-The RFM model is a marketing and customer segmentation technique used to analyze and categorize customers based on their recent purchasing behavior.
+The RFM metric is a marketing and customer segmentation technique used to analyze and categorize customers based on their recent purchasing behavior.
 
 ![RFM Metrics](./assets/rfm/rfm_metrics.png)
 
 By analyzing these three factors, businesses can categorize their customers into different segments, such as "high-value and highly engaged" or "low-value and inactive." This segmentation allows companies to tailor their marketing strategies and offers to each group more effectively, ultimately improving customer retention and maximizing revenue.
 
 ![RFM Map](./assets/rfm/rfm_map.png)
+
+### 1.3 EDA - R(FM) Map
+
+I have applied RFM segmentation by dividing customers into five quantile-based categories for Recency, Frequency, and Monetary values.
+
+A countplot visualizes the distribution of RFM scores.
+
+![EDA - RFM Count](./assets/rfm/rfm_output_count.png)
+
+A scatter plot maps recency against the recency and monetary, with the RFM score represented through hue and size. This visualization helps in identifying customer groups based on their recent activity and spending patterns, providing insights for targeted marketing strategies.
+
+![EDA - RFM Map](./assets/rfm/rfm_output_map.png)
 
 ### 1.3 Conclusion
 
@@ -209,10 +211,6 @@ The Elbow method indicates that 5 is to optimal number of clusters.
 
 ## 3. Loyalty Program
 
-### 3.1 RFM Map
-
-![RFM Map of the clusters](./assets/clustering/rfm_map.png)
-
 After analyzing the clusters, we can infere that the most valuable clients for a loyalty program are the Prosperous Shoppers, because they have:
 
 - a high income;
@@ -229,6 +227,6 @@ After analyzing the clusters, we can infere that the most valuable clients for a
 ### 3.2 Results
 
 - Total revenue before Prosperous loyalty program: $1,349,751.00.
-- Total revenue after Prosperous loyalty program: $1,475,425.50
+- Total revenue after Prosperous loyalty program: $1,475,442.45
 - Revenue increased by 9.00%
-- Revenue increased in $125,674.50.
+- Revenue increased in $125,691.45.
